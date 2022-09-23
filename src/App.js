@@ -1,32 +1,23 @@
-import { Route, Routes } from "react-router-dom";
-import "./App.css";
-import Header from "./components/Layout/Header";
-import Cart from "./components/Pages/Cart";
-import Home from "./components/Pages/Home";
-import {BrowserRouter as Router} from 'react-router-dom'
-import SignIn from "./components/Home/SignIn";
-import SignUp from "./components/Home/SignUp";
-import 'react-toastify/dist/ReactToastify.css';
-import Product from "./components/Pages/Product";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+import Home from "./pages/home/Home";
+import Hotel from "./pages/hotel/Hotel";
+import List from "./pages/list/List";
+import Login from "./pages/login/Login";
 
 function App() {
   return (
-    <Router>
-        <div className="App">
-          <Header />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path='/product/:id' element={<Product />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/register" element={<SignUp />} />
-            <Route path="/login" element={<SignIn />} />
-            <Route path="/reset" element={<Cart />} />
-            <Route path="/recovery" element={<Cart />} />
-          </Routes>
-        </div>
-    </Router>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/hotels" element={<List/>}/>
+        <Route path="/hotels/:id" element={<Hotel/>}/>
+        <Route path="/login" element={<Login/>}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

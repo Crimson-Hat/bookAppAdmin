@@ -1,14 +1,16 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import { Provider } from "react-redux";
+import ReactDOM from "react-dom/client";
 import App from "./App";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "react-multi-carousel/lib/styles.css";
-import store from "./store";
+import { AuthContextProvider } from "./context/AuthContext";
+import { SearchContextProvider } from "./context/SearchContext";
 
-ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById("root")
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+  <React.StrictMode>
+    <AuthContextProvider>
+      <SearchContextProvider>
+        <App />
+      </SearchContextProvider>
+    </AuthContextProvider>
+  </React.StrictMode>
 );
