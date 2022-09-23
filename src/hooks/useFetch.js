@@ -11,7 +11,7 @@ const useFetch = (url) => {
       setLoading(true);
       try {
         
-        const url = `${process.env.REACT_APP_SERVER_URL}api/products`;
+        const url = `${process.env.REACT_APP_SERVER}`;
         
         const res = await axios.get(url);
         
