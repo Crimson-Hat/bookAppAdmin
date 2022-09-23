@@ -10,14 +10,22 @@ const useFetch = (url) => {
     const fetchData = async () => {
       setLoading(true);
       try {
+        
+        const url = `${process.env.REACT_APP_SERVER_URL}api/products`;
+        
         const res = await axios.get(url);
+        
         setData(res.data);
+
       } catch (err) {
         setError(err);
+      
       }
       setLoading(false);
+    
     };
     fetchData();
+  
   }, [url]);
 
   const reFetch = async () => {
